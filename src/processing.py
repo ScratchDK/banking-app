@@ -13,5 +13,15 @@ def filter_by_state(list_of_data: list, filter_state: str = 'EXECUTED') -> list:
     return new_list_data
 
 
+def sort_by_date(list_of_data: list, ascending: bool = True) -> list:
+    """Функция получает на вход список данных (id, статус и дату) и значение для сортировки по дате,
+    а затем возвращает новый отсортированный список"""
+    new_list_data = sorted(list_of_data, key=lambda x: x['date'], reverse=ascending)
+    return new_list_data
+
+
 print(filter_by_state(list_id, 'CANCELED'))
 print(filter_by_state(list_id))
+
+print(sort_by_date(list_id, False))
+print(sort_by_date(list_id))
