@@ -1,4 +1,5 @@
 from masks import get_mask_account, get_mask_card_number
+from datetime import datetime
 
 
 def mask_account_card(account_card: str) -> str:
@@ -15,6 +16,12 @@ def mask_account_card(account_card: str) -> str:
 
 def get_date(date: str) -> str:
     """Функция получает на вход дату в виде строки и возвращает её в формате "ДД.ММ.ГГГГ"""
+
+    try:
+        datetime.fromisoformat(date)
+    except ValueError:
+        return "Формат даты не поддерживается!"
+
     modified_date = date[:10].split("-")[::-1]
     new_date = ".".join(modified_date)
 
@@ -30,4 +37,5 @@ print(mask_account_card("Visa Platinum 8990922113665229"))
 print(mask_account_card("Visa Gold 5999414228426353"))
 print(mask_account_card("Счет 73654108430135874305"))
 
+print(get_date("31.02.23"))
 print(get_date("2024-03-11T02:26:18.671407"))

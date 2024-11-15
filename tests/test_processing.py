@@ -55,7 +55,7 @@ def test_filter_by_state_without_data():
     assert str(e.value) == "'Список содержит словари с некорректными данными!'"
 
 
-# Проверка на вызов исключения при фильтраций списка с отсутствием ключа state
+# Проверка на вызов исключения при фильтраций списка с отсутствием ключа date
 def test_sort_by_date_without_data():
     with pytest.raises(KeyError) as e:
         sort_by_date([
