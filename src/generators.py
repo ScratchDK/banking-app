@@ -77,7 +77,7 @@ def transaction_descriptions(list_transactions: list) -> Generator[str, None, No
         try:
             yield el["description"]
         except KeyError:
-            yield f"В nранзакций {el["id"]} остсутствует поле 'description'"
+            yield f"В nранзакций {el['id']} остсутствует поле 'description'"
 
 
 def card_number_generator(start: int, end: int) -> list | str:
