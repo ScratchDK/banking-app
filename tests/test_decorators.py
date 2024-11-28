@@ -1,6 +1,7 @@
-import pytest
-import os
 import datetime
+import os
+
+import pytest
 
 from src.decorators import log
 
@@ -34,7 +35,7 @@ def test_log_func_division(a: int, b: int, expected: str | int) -> None:
         (12, 3, f"{time_start} - division: [ok]\n")
     ],
 )
-def test_log_func_division_writing (a: int, b: int, expected: str | int) -> None:
+def test_log_func_division_writing(a: int, b: int, expected: str | int) -> None:
     @log("logs.txt")
     def division(num_a: int, num_b: int) -> int:
         return num_a // num_b
@@ -171,7 +172,7 @@ def test_log_func_filter_by_currency(transactions: list) -> None:
         ),
     ],
 )
-def test_log_func_filter_by_currency_error(data, filter_currency, expected) -> None:
+def test_log_func_filter_by_currency_error(data: list, filter_currency: str, expected: list) -> None:
     @log()
     def filter_by_currency(list_transactions: list, currency: str) -> list:
         filter_transactions = []
@@ -183,5 +184,4 @@ def test_log_func_filter_by_currency_error(data, filter_currency, expected) -> N
         return filter_transactions
 
     result = filter_by_currency(data, filter_currency)
-    print(result)
     assert result == expected

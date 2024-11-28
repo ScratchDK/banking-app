@@ -1,12 +1,13 @@
 import datetime
+from typing import Any, Callable
 
 
-def log(filename: str = ""):
+def log(filename: str = "") -> Callable[[Callable[..., Any]], Any]:
     """Функция 'обертка' для ведения логов входящих функций, если в параметрах указан файл,
     то статус выполнения функции сохраняется в него, если нет то выводится в консоль."""
 
-    def my_decorator(func):
-        def wrapper(*args, **kwargs):
+    def my_decorator(func: Callable) -> Any:
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
             time_start = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
             try:
                 result = func(*args, **kwargs)
