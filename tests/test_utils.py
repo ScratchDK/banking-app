@@ -32,7 +32,7 @@ from src.utils import transaction_processing
         ("../data/empty.json", []),
     ],
 )
-def test_transaction_processing(path_file: str, expected: dict) -> None:
+def test_transaction_processing(path_file: str, expected: list) -> None:
 
     result = transaction_processing(path_file)
     assert result == expected
