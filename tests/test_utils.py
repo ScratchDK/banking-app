@@ -7,7 +7,7 @@ from src.utils import transaction_processing
     "path_file, expected",
     [
         (
-            "../data/test.json",
+            "../data/utils_test.json",
             [
                 {
                     "id": 441945886,
@@ -32,6 +32,7 @@ from src.utils import transaction_processing
         ("../data/empty.json", []),
     ],
 )
-def test_transaction_processing(path_file: str, expected: list) -> None:
+def test_transaction_processing(path_file: str, expected: dict) -> None:
+
     result = transaction_processing(path_file)
     assert result == expected
