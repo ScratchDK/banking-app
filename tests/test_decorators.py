@@ -5,7 +5,7 @@ import pytest
 
 from src.decorators import log
 
-time_start = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+time_start = datetime.datetime.now().strftime("%d.%m.%Y %H:%M")
 
 
 @pytest.mark.parametrize(
@@ -32,20 +32,20 @@ def test_log_func_division(a: int, b: int, expected: str | int) -> None:
     [
         (5, 0, f"{time_start} - division: [error] ZeroDivisionError. Inputs: ((5, 0), {{}})\n"),
         ("текст", 2, f"{time_start} - division: [error] TypeError. Inputs: (('текст', 2), {{}})\n"),
-        (12, 3, f"{time_start} - division: [ok]\n")
+        (12, 3, f"{time_start} - division: [ok]\n"),
     ],
 )
 def test_log_func_division_writing(a: int, b: int, expected: str | int) -> None:
-    @log("logs.txt")
+    @log("logs_test.txt")
     def division(num_a: int, num_b: int) -> int:
         return num_a // num_b
 
     division(a, b)
 
-    with open("logs.txt", "r", encoding="utf-8") as file:
+    with open("logs_test.txt", "r", encoding="utf-8") as file:
         result = file.read()
 
-    os.remove("logs.txt")
+    os.remove("logs_test.txt")
 
     assert result == expected
 

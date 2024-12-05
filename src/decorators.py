@@ -8,7 +8,8 @@ def log(filename: str = "") -> Callable[[Callable[..., Any]], Any]:
 
     def my_decorator(func: Callable) -> Any:
         def wrapper(*args: Any, **kwargs: Any) -> Any:
-            time_start = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+            time_start = datetime.datetime.now().strftime("%d.%m.%Y %H:%M")
+            # path_write = f"../logs/{filename}"
             try:
                 result = func(*args, **kwargs)
             except Exception as e:
