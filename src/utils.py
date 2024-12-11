@@ -34,7 +34,3 @@ def transaction_processing(path_file: str) -> Any:
 path_file_operations = "operations.json"
 path_file_empty = "empty.json"
 path_file_test = "utils_test.json"
-
-print(transaction_processing(path_file_operations))
-print(transaction_processing(path_file_empty))
-print(transaction_processing(path_file_test))
