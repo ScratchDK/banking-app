@@ -4,7 +4,7 @@ from unittest.mock import patch
 import pandas as pd
 import pytest
 
-from src.reader_utils import read_csv, read_excel
+from src.reader_utils import read_csv, read_excel, search_matches
 
 
 @pytest.mark.parametrize(
@@ -47,3 +47,15 @@ def test_read_excel_error() -> None:
 
 def test_read_csv_error() -> None:
     assert read_csv("error") == "FileNotFoundError"
+
+
+@pytest.mark.parametrize(
+    "word, expected",
+    [
+        ("перевод", [{"description": "Перевод организации"}, {"description": "Перевод организации"}]),
+        ("ОТКРЫТИЕ", [{"description": "Открытие вклада"}, {"description": "Открытие вклада"}]),
+        ("Совпадений не найдено!", "Совпадений не найдено!"),
+    ],
+)
+def test_search_matches(list_search_word: list, word: str, expected: list) -> None:
+    assert search_matches(list_search_word, word) == expected

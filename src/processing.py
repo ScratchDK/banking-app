@@ -14,9 +14,9 @@ def filter_by_state(list_of_data: list, filter_state: str = "EXECUTED") -> list:
     new_list_data = []
 
     for el in list_of_data:
-        if not el.get("state"):
-            raise KeyError("Список содержит словари с некорректными данными!")
-        if el["state"] == filter_state:
+        if el.get("state") is None:
+            pass
+        elif el["state"] == filter_state:
             new_list_data.append(el)
 
     return new_list_data
@@ -38,10 +38,3 @@ def sort_by_date(list_of_data: list, ascending: bool = True) -> list:
 
     sorted_list_data = sorted(new_list_data, key=lambda x: x["date"], reverse=ascending)
     return sorted_list_data
-
-
-print(filter_by_state(list_id, "CANCELED"))
-print(filter_by_state(list_id))
-
-print(sort_by_date(list_id, False))
-print(sort_by_date(list_id))
