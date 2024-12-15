@@ -23,6 +23,7 @@ def transaction_processing(path_file: str) -> Any:
     try:
         with open(full_path_file_data, encoding="utf-8") as file_json:
             data = json.load(file_json)
+
     except Exception as e:
         logger.error(f"{type(e).__name__}, возвращен пустой список")
         return []

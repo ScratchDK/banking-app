@@ -1,12 +1,13 @@
-from reader_utils import read_excel
 from collections import Counter
+
+from src.reader_utils import read_excel
 
 descriptions = ["Перевод с карты на карту", "Перевод организации", "Открытие вклада"]
 
 
 def count_transaction(list_dict: list, list_cat: list) -> dict:
     """Функция принимает на вход список словарей и список с категориями
-     и возвращает словарь с подсчетом каждой категорий"""
+    и возвращает словарь с подсчетом каждой категорий"""
     new_list = []
 
     for transaction in list_dict:
@@ -24,5 +25,3 @@ def count_transaction(list_dict: list, list_cat: list) -> dict:
 file_excel = "transactions_excel.xlsx"
 
 test_excel = read_excel(file_excel)
-
-print(count_transaction(test_excel, descriptions))

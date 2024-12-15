@@ -15,8 +15,8 @@ def filter_by_state(list_of_data: list, filter_state: str = "EXECUTED") -> list:
 
     for el in list_of_data:
         if el.get("state") is None:
-            raise KeyError("Список содержит словари с некорректными данными!")
-        if el["state"] == filter_state:
+            pass
+        elif el["state"] == filter_state:
             new_list_data.append(el)
 
     return new_list_data

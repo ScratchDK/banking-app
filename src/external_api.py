@@ -37,11 +37,7 @@ def currency_conversion(transaction: dict) -> Any:
         response = requests.get(url, headers=headers)
 
         result = response.json()
-        print(result)
 
         return result["result"]
     else:
         return "На данный момент конвертация валют доступна только для EUR и USD!"
-
-
-print(currency_conversion(test_transaction))
