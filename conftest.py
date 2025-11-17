@@ -102,3 +102,19 @@ def transactions():
             "to": "Счет 14211924144426031657"
         }
         ]
+
+
+@pytest.fixture
+def list_search_word():
+    return [
+        {"description": "Перевод организации"},
+        {"description": "Перевод организации"},
+        {"description": "Открытие вклада"},
+        {"description": "Открытие вклада"},
+        {"description": "Пустышка"}
+    ]
+
+
+@pytest.fixture
+def list_categories():
+    return ["Перевод с карты на карту", "Перевод организации", "Открытие вклада"]

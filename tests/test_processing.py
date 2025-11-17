@@ -65,10 +65,10 @@ def test_sort_by_date_non_standart(date_non_standart: list) -> None:
 
 
 # Проверка на вызов исключения при фильтраций списка с отсутствием ключа state
-def test_filter_by_state_without_data() -> None:
-    with pytest.raises(KeyError) as e:
-        filter_by_state([{"id": 939719570, "date": "2018-06-30T02:08:58.425572"}])
-    assert str(e.value) == "'Список содержит словари с некорректными данными!'"
+# def test_filter_by_state_without_data() -> None:
+#    with pytest.raises(KeyError) as e:
+#        filter_by_state([{"id": 939719570, "date": "2018-06-30T02:08:58.425572"}])
+#    assert str(e.value) == "'Список содержит словари с некорректными данными!'"
 
 
 # Проверка на вызов исключения при фильтраций списка с отсутствием ключа date

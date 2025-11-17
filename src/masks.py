@@ -39,15 +39,3 @@ def get_mask_account(bank_account_number: str) -> str:
         err = "Данный формат счета не поддерживаеться!"
         logger.error(err)
         return err
-
-
-print(get_mask_card_number("Maestro 1596837868705199"))
-print(get_mask_account("Счет 64686473678894779589"))
-print(get_mask_card_number("MasterCard 7158300734726758"))
-print(get_mask_account("Счет 35383033474447895560"))
-print(get_mask_card_number("Visa Classic 6831982476737658"))
-print(get_mask_card_number("Visa Platinum 8990922113665229"))
-print(get_mask_card_number("Visa Gold 5999414228426353"))
-print(get_mask_card_number("Visa Gold 5999414abc426353"))
-print(get_mask_account("Счет 73654108430135874305"))
-print(get_mask_account("Счет 73654abc5874305"))
